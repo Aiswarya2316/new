@@ -30,14 +30,14 @@ def order_payment(request):
         order.save()
         return render(
             request,
-            "index.html",
+            "home.html",
             {
                 "callback_url": "http://" + "127.0.0.1:8000" + "razorpay/callback",
                 "razorpay_key": settings.RAZORPAY_KEY_ID,
                 "order": order,
             },
         )
-    return render(request, "index.html")
+    return render(request, "home.html")
 
 
 @csrf_exempt
